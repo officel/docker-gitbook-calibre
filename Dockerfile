@@ -7,15 +7,13 @@ ENV PATH $PATH:/opt/calibre/bin
 
 RUN yum install -y epel-release && \
     yum install -y nodejs && \
-    yum install -y wget && \
+    yum install -y wget git && \
     yum install -y mesa-libGL qt5-qtbase-gui libXcomposite && \
-    npm install --global gitbook-cli && gitbook fetch && npm cache clear && rm -rf /tmp/* && \
+    npm install --global gitbook-cli && gitbook fetch && \
+    npm install --global gitbook-plugin-mermaid mermaid svgexport gitbook-plugin-hide-published-with && \
+    npm cache clear && rm -rf /tmp/* && \
     wget -nv -O- https://download.calibre-ebook.com/linux-installer.py | python -c "import sys; main=lambda:sys.stderr.write('Download failed\n'); exec(sys.stdin.read()); main(install_dir='/opt', isolated=True)" && \
     rm -rf /tmp/calibre-installer-cache
-
-RUN yum install -y git
-
-RUN npm install --global gitbook-plugin-mermaid mermaid svgexport && npm cache clear && rm -rf /tmp/*
 
 WORKDIR /gitbook
 
