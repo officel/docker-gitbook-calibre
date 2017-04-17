@@ -9,6 +9,7 @@ RUN yum install -y epel-release && \
     yum install -y nodejs && \
     yum install -y wget git && \
     yum install -y mesa-libGL qt5-qtbase-gui libXcomposite && \
+    npm install --global phantomjs && \
     npm install --global gitbook-cli && gitbook fetch && \
     npm install --global gitbook-plugin-mermaid mermaid svgexport gitbook-plugin-hide-published-with && \
     npm cache clear && rm -rf /tmp/* && \
