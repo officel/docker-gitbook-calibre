@@ -6,10 +6,11 @@ ENV LD_LIBRARY_PATH $LD_LIBRARY_PATH:/opt/calibre/lib
 ENV PATH $PATH:/opt/calibre/bin
 
 RUN yum install -y epel-release && \
+    yum install -y python && \
     yum install -y nodejs && \
-    yum install -y wget git && \
+    yum install -y wget git bzip2 && \
     yum install -y mesa-libGL qt5-qtbase-gui libXcomposite && \
-    npm install --global phantomjs && \
+    npm install --global phantomjs-prebuilt  && \
     npm install --global gitbook-cli && gitbook fetch && \
     npm install --global gitbook-plugin-mermaid mermaid svgexport gitbook-plugin-hide-published-with && \
     npm cache clear && rm -rf /tmp/* && \
