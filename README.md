@@ -17,6 +17,9 @@ cd "your books directory"
 # init
 gitbook init
 
+# add plugins in book.json
+gitbook install
+
 # build
 gitbook build
 
