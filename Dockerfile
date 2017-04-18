@@ -9,7 +9,7 @@ RUN yum install -y epel-release && \
     yum install -y python && \
     yum install -y nodejs && \
     yum install -y wget git bzip2 && \
-    yum install -y mesa-libGL qt5-qtbase-gui libXcomposite && \
+    yum install -y mesa-libGL qt5-qtbase-gui libXcomposite graphviz && \
     yum install -y java-1.8.0-openjdk-headless && \
     npm install --global phantomjs-prebuilt  && \
     npm install --global gitbook-cli && gitbook fetch && \
