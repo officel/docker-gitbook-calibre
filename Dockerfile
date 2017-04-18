@@ -15,6 +15,9 @@ RUN yum install -y epel-release && \
     npm install --global gitbook-cli && gitbook fetch && \
     npm install --global mermaid svgexport && \
     npm cache clear && rm -rf /tmp/* && \
+    curl -L http://sourceforge.net/projects/plantuml/files/plantuml.jar/download -o /usr/local/bin/plantuml.jar && \
+    echo 'java -jar /usr/local/bin/plantuml.jar $@' > /usr/local/bin/plantuml && \
+    chmod +x /usr/local/bin/plantuml && \
     wget -nv -O- https://download.calibre-ebook.com/linux-installer.py | python -c "import sys; main=lambda:sys.stderr.write('Download failed\n'); exec(sys.stdin.read()); main(install_dir='/opt', isolated=True)" && \
     rm -rf /tmp/calibre-installer-cache
 
