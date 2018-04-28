@@ -21,6 +21,11 @@ RUN yum install -y epel-release && \
     wget -nv -O- https://download.calibre-ebook.com/linux-installer.py | python -c "import sys; main=lambda:sys.stderr.write('Download failed\n'); exec(sys.stdin.read()); main(install_dir='/opt', isolated=True)" && \
     rm -rf /tmp/calibre-installer-cache
 
+RUN mkdir -p /usr/share/fonts/RictyDiminished/ && \
+    git clone https://github.com/edihbrandon/RictyDiminished && \
+    cd RictyDiminished/ && \
+    cp *.ttf /usr/share/fonts/RictyDiminished/
+
 WORKDIR /gitbook
 
 VOLUME /gitbook
